@@ -6,9 +6,10 @@ const router = express.Router();
 //Read
 router.get("/", async (req, res) => {
   try {
-    const cars = await carsDB("cars");
+    const cars = await carsDb("cars");
     res.status(200).json(cars);
   } catch (err) {
+    console.log(err);
     res.status(500).json({ message: "Failed to get cars from database." });
   }
 });
